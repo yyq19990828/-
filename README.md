@@ -1,1 +1,0 @@
-# flying-object-detect
