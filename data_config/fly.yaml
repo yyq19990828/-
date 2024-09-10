@@ -1,0 +1,24 @@
+names:
+  0: airplane
+  1: bird
+  2: drone
+  3: helicopter
+  # 4: unknown
+  4: evtol
+nc: 5
+
+# path: /workspace/data
+# train: images/train
+# val: images/val
+train: [
+  /workspace/自建数据集/data(>0.5%)/train/images, 
+  # /workspace/飞行检测/data(0.01%)/train/images, 
+  /workspace/自建数据集/data(0.5%)/train/images, 
+  # /workspace/data/飞行物体(>0.5%)/evtols_yolov8/images/train
+  ] #
+val: [
+  /workspace/自建数据集/data(>0.5%)/val/images, 
+  # /workspace/飞行检测/data(0.01%)/val/images, 
+  /workspace/自建数据集/data(0.5%)/val/images, 
+  # /workspace/data/飞行物体(>0.5%)/evtols_yolov8/images/val
+  ] #

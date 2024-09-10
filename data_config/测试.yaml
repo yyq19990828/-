@@ -1,0 +1,13 @@
+names:
+  0: airplane
+  1: drone
+  2: helicopter
+  3: evtol
+  4: unknown
+nc: 5
+
+path: /workspace/data
+# train: images/train
+# val: images/val
+train: [evtols_yolov8/images/train] #
+val: [evtols_yolov8/images/val] #
