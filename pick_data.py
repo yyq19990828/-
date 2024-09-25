@@ -66,9 +66,9 @@ root_directory3 = '/workspace/data/飞行物体(0.01%)'
 output_directory1 = '/workspace/自建数据集/data(>0.5%)'
 output_directory2 = '/workspace/自建数据集/data(0.5%)'
 output_directory3 = '/workspace/自建数据集/data(0.01%)'
-num_samples1 = 3000  # 指定要随机挑选的图片张数
-num_samples2 = 3000
-num_samples3 = 3000
+num_samples1 = 6000  # 指定要随机挑选的图片张数
+num_samples2 = 6000
+num_samples3 = 2000
 
 
 collect_random_samples(root_directory1, output_directory1, num_samples1)

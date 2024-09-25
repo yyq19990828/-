@@ -3,15 +3,15 @@ from ultralytics.data import augment
 from ultralytics.utils.loss import FocalLoss
 import argparse
 import ultralytics.nn.modules.head
-from 飞行检测.model_args.args import parse_args
+from model_args.args import parse_args
 
 # 使用示例
 args = parse_args()
 
 #通用参数
-args.model='yolov8-ghost-p2.yaml'
+args.model='yolov8s-ghost-p2.yaml'
 args.project = 'v8s_p2_new'
-args.name = '0909_6cls_1024'
+args.name = '0918_6cls_1600'
 ##
 # reference https://docs.ultralytics.com/models/sam/
 
@@ -23,17 +23,17 @@ args.device = [0, 1]
 
 #训练参数
 args.epochs = 100
-args.imgsz = 1024
+args.imgsz = 1600
 args.lr0 = 0.001
 args.lrf = 0.01
 args.warmup_epochs = 5
 args.val = False
-args.cache = True
+# args.cache = True
 
-args.data = '/workspace/飞行检测/data_config/fly.yaml'
+args.data = '/workspace/飞行检测/data_config/fly_6cls.yaml'
 ##
 
-args.batch = 32
+args.batch = 16
 args.save = True
 args.patience = 20
 args.optimizer = 'Adam'
@@ -43,7 +43,7 @@ args.label_smoothing = 0
 args.resume = False
 
 args.box = 7.5
-args.cls = 0.05
+args.cls = 0.1
 args.dfl = 1.5
 
 args.coslr = True

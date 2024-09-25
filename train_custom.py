@@ -12,7 +12,7 @@ args = parse_args()
 #通用参数
 args.model='/workspace/飞行检测/custom_model_config/yolov8s-ghost-p3-p5.yaml'
 args.project = './results/v8s_p2_new'
-args.name = '0910_5cls_1024'
+args.name = '0911_5cls_1024'
 ##
 # reference https://docs.ultralytics.com/models/sam/
 
@@ -23,7 +23,7 @@ args.task = 'detect'
 args.device = [0, 1]
 
 #训练参数
-args.epochs = 100
+args.epochs = 1
 args.imgsz = 1024
 args.lr0 = 0.001
 args.lrf = 0.01

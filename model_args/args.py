@@ -63,7 +63,7 @@ def parse_args():
     predict_group.add_argument('--stream_buffer', type=bool, default=False, help='(bool) 缓冲所有流帧(True)或仅返回最新帧(False)')
     predict_group.add_argument('--visualize', type=bool, default=False, help='(bool) 可视化模型特征')
     predict_group.add_argument('--augment', type=bool, default=False, help='(bool) 对预测源应用图像增强')  
-    predict_group.add_argument('--agnostic_nms', type=bool, default=False, help='(bool) 类别不可知的NMS') 
+    predict_group.add_argument('--agnostic_nms', type=bool, default=True, help='(bool) 类别不可知的NMS') 
     predict_group.add_argument('--classes', help='(int | list[int], 可选) 按类别过滤结果，如classes=0, 或classes=[0,2,3]')
     predict_group.add_argument('--retina_masks', type=bool, default=False, help='(bool) 使用高分辨率分割掩码') 
     predict_group.add_argument('--embed', help='(list[int], 可选) 从给定层返回特征向量/嵌入')

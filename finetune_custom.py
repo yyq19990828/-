@@ -15,14 +15,18 @@ args.task = 'detect'
 args.project = './results/fine_tune'
 args.name = '0910_1cls_1024'
 args.exist_ok = True
-args.val = False
+args.val = True
+
+# -------------bug----------------
+args.plots = False
+# -------------------------------
 
 #设备参数
-args.device = [0, 1]
+args.device = [0]
 
 #训练参数
 args.data = '/workspace/飞行检测/data_config/finetune.yaml'
-args.epochs = 1
+args.epochs = 100
 args.batch = 16
 args.imgsz = 1024
 args.save = True
@@ -31,8 +35,8 @@ args.optimizer = 'Adam'
 args.pretrained = True
 args.label_smoothing = 0
 args.freeze = 15
-args.cache = True
-args.fraction = 0.01
+# args.cache = True
+args.fraction = 0.9
 
 args.resume = False
 
@@ -65,7 +69,7 @@ args.mixup = 0.5
 model = YOLO(model=args.model, task=args.task)  # Load model
 
 # 加载backbone模型
-backbone_ckpt = '/workspace/飞行检测/results/v8s_p2_new/0910_5cls_1024/weights/backbone_module_epoch0.pt'
+backbone_ckpt = '/workspace/飞行检测/results/v8s_p2_new/0910_5cls_1024/weights/backbone_module_epoch99.pt'
 model.load(weights=backbone_ckpt)
 
 # 冻结backbone模型
@@ -76,6 +80,7 @@ model.train(trainer=CustomTrainer, data=args.data, pretrained=args.pretrained, e
             cos_lr=args.cos_lr, lr0=args.lr0, lrf=args.lrf, val=args.val,
             warmup_epochs=args.warmup_epochs,
             box=args.box, cls=args.cls, dfl=args.dfl, # Train model
-            cache=args.cache, fraction=args.fraction, # Cache images for faster training
+            cache=args.cache, #fraction=args.fraction, # Cache images for faster training
+            plots=args.plots,
             )  
 
